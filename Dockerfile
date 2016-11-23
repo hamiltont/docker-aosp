@@ -28,8 +28,10 @@ RUN chmod 755 /usr/local/bin/*
 WORKDIR /tmp
 
 # All builds will be done by user aosp
-COPY gitconfig /root/.gitconfig
-COPY ssh_config /root/.ssh/config
+RUN useradd --create-home aosp
+ADD gitconfig /root/.gitconfig
+ADD ssh_config /root/.ssh/config
+RUN chown aosp:aosp /home/aosp/.gitconfig
 
 # The persistent data will be in these two directories, everything else is
 # considered to be ephemeral
