@@ -29,8 +29,8 @@ WORKDIR /tmp
 
 # All builds will be done by user aosp
 RUN useradd --create-home aosp
-ADD gitconfig /root/.gitconfig
-ADD ssh_config /root/.ssh/config
+ADD gitconfig /home/aosp/.gitconfig
+ADD ssh_config /home/aosp/.ssh/config
 RUN chown aosp:aosp /home/aosp/.gitconfig
 
 # The persistent data will be in these two directories, everything else is
